@@ -1,0 +1,84 @@
+:root {
+  --bg-primary: #0b0f19;
+  --bg-secondary: #131927;
+  --bg-card: rgba(23, 31, 48, 0.75);
+  --bg-card-hover: rgba(30, 41, 64, 0.85);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-bright: rgba(255, 255, 255, 0.18);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --color-indigo: #6366f1;
+  --color-crimson: #ff3b30;
+  --color-amber: #ff9500;
+  --color-cyan: #00c7be;
+  --color-emerald: #10b981;
+
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --radius-md: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.dept-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dept-header {
+  height: 70px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.kpi-card {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-submitted { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; }
+.badge-assigned { background: rgba(255, 149, 0, 0.15); color: #ff9500; }
+.badge-in_progress { background: rgba(0, 199, 190, 0.15); color: #00c7be; }
+.badge-resolved { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.badge-escalated { background: rgba(255, 59, 48, 0.15); color: #ff3b30; }
