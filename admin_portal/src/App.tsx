@@ -317,7 +317,7 @@ export default function App() {
           {activeNav === 'map' && (
             <div className="glass-panel" style={{ padding: '1.5rem' }}>
               <h3 style={{ marginBottom: '1rem' }}>Live Spatial Complaint Density Map</h3>
-              <div style={{ background: 'var(--bg-secondary)', height: '480px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyCenter: 'center', border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ background: 'var(--bg-secondary)', height: '480px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ textAlign: 'center', padding: '2rem' }}>
                   <MapPin size={48} color="var(--color-indigo)" style={{ marginBottom: '0.5rem' }} />
                   <h4>OpenStreetMap Dark Layer Loaded</h4>

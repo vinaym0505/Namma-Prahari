@@ -146,7 +146,7 @@ export default function App() {
         {/* Mobile Header Bar */}
         <div style={{ background: '#131927', padding: '1.2rem 1.25rem 0.8rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <div style={{ width: 32, height: 32, background: 'linear-gradient(135deg, #6366f1, #00c7be)', borderRadius: 8, display: 'flex', alignItems: 'center', justifyCenter: 'center', color: '#fff' }}>
+            <div style={{ width: 32, height: 32, background: 'linear-gradient(135deg, #6366f1, #00c7be)', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
               <Shield size={18} />
             </div>
             <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff' }}>NAMMA PRAHARI</span>
