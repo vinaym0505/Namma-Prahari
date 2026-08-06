@@ -82,6 +82,13 @@ final appRouter = GoRouter(
         return PhotoPreviewScreen(imagePath: path);
       },
     ),
+    GoRoute(
+      path: '/complaint_form',
+      builder: (context, state) {
+        final path = state.extra as String? ?? '';
+        return ComplaintFormScreen(imagePath: path);
+      },
+    ),
     ShellRoute(
       builder: (context, state, child) {
         int index = 0;
