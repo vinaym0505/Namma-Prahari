@@ -19,6 +19,10 @@ import {
 } from '@shared/index';
 import { MOCK_COMPLAINTS, MOCK_HISTORY } from '@shared/mockData';
 import { STATUS_COLORS, SEVERITY_COLORS, CATEGORY_ICONS } from '@shared/tokens';
+import { DeptAuthProvider, useDeptAuth } from './context/AuthContext';
+import { DeptSidebar } from './components/layout/DeptSidebar';
+import { DeptHeader } from './components/layout/DeptHeader';
+import { DeptEmptyState } from './components/shared/EmptyState';
 
 // Status transition rules: what status can flow to what
 const STATUS_TRANSITIONS: Record<string, string[]> = {
@@ -28,9 +32,9 @@ const STATUS_TRANSITIONS: Record<string, string[]> = {
   escalated: ['in_progress'],
 };
 
-export default function App() {
-  // Simulated department JWT claim — in production, extracted from Supabase JWT
-  const [selectedDeptId, setSelectedDeptId] = useState<string>("11111111-1111-1111-1111-111111111111");
+export function DeptAppShell() {
+  const { user } = useDeptAuth();
+  const selectedDeptId = user?.departmentId || "11111111-1111-1111-1111-111111111111";
   const [complaints, setComplaints] = useState<ComplaintPIISafe[]>(MOCK_COMPLAINTS);
   const [historyLogs, setHistoryLogs] = useState<ComplaintHistoryItem[]>(MOCK_HISTORY);
   const [activeComplaint, setActiveComplaint] = useState<ComplaintPIISafe | null>(null);
@@ -528,3 +532,12 @@ function timeAgo(dateStr: string): string {
   const days = Math.floor(hours / 24);
   return `${days}d ago`;
 }
+
+export default function App() {
+  return (
+    <DeptAuthProvider>
+      <DeptAppShell />
+    </DeptAuthProvider>
+  );
+}
+

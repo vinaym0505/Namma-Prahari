@@ -29,12 +29,16 @@ import {
 } from '@shared/index';
 import { MOCK_COMPLAINTS, MOCK_HISTORY, computeKPIs } from '@shared/mockData';
 import { STATUS_COLORS, SEVERITY_COLORS, CATEGORY_ICONS } from '@shared/tokens';
+import { AuthProvider } from './context/AuthContext';
+import { Sidebar } from './components/layout/Sidebar';
+import { Header } from './components/layout/Header';
 
 // =============================================================================
 // APP SHELL
 // =============================================================================
 
-export default function App() {
+export function AdminAppShell() {
+  const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
   const [complaints, setComplaints] = useState<ComplaintPIISafe[]>(MOCK_COMPLAINTS);
   const [history, setHistory] = useState<ComplaintHistoryItem[]>(MOCK_HISTORY);
@@ -1081,3 +1085,12 @@ function timeAgo(dateStr: string): string {
   const days = Math.floor(hours / 24);
   return `${days}d ago`;
 }
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AdminAppShell />
+    </AuthProvider>
+  );
+}
+
