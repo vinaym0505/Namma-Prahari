@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 import '../../presentation/screens/auth/splash_screen.dart';
 import '../../presentation/screens/auth/login_screen.dart';
 import '../../presentation/screens/home/home_screen.dart';
 import '../../presentation/screens/report/gps_gate_screen.dart';
+import '../../presentation/screens/report/camera_screen.dart';
+import '../../presentation/screens/report/photo_preview_screen.dart';
+import '../../presentation/screens/report/complaint_form_screen.dart';
 import '../../presentation/screens/tracking/complaint_list_screen.dart';
 import '../../presentation/screens/leaderboard/leaderboard_screen.dart';
 import '../../presentation/screens/notifications/notifications_screen.dart';
@@ -70,6 +70,17 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/gps_gate',
       builder: (context, state) => const GpsGateScreen(),
+    ),
+    GoRoute(
+      path: '/camera',
+      builder: (context, state) => const CameraScreen(),
+    ),
+    GoRoute(
+      path: '/photo_preview',
+      builder: (context, state) {
+        final path = state.extra as String? ?? '';
+        return PhotoPreviewScreen(imagePath: path);
+      },
     ),
     ShellRoute(
       builder: (context, state, child) {
