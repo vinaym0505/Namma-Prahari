@@ -1,0 +1,18 @@
+{
+  "name": "namma-prahari",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Namma Prahari — Smart Civic Issue Reporting Platform",
+  "workspaces": [
+    "packages/*",
+    "admin_portal",
+    "department_portal"
+  ],
+  "scripts": {
+    "dev:admin": "npm run dev --workspace=admin_portal",
+    "dev:dept": "npm run dev --workspace=department_portal",
+    "build:admin": "npm run build --workspace=admin_portal",
+    "build:dept": "npm run build --workspace=department_portal",
+    "dev:all": "concurrently \"npm run dev:admin\" \"npm run dev:dept\""
+  }
+}
