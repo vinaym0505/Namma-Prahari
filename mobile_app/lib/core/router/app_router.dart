@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../presentation/screens/auth/splash_screen.dart';
 import '../../presentation/screens/auth/login_screen.dart';
 import '../../presentation/screens/home/home_screen.dart';
+import '../../presentation/screens/report/gps_gate_screen.dart';
 import '../../presentation/screens/tracking/complaint_list_screen.dart';
 import '../../presentation/screens/leaderboard/leaderboard_screen.dart';
 import '../../presentation/screens/notifications/notifications_screen.dart';
@@ -65,6 +66,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/login',
       builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      path: '/gps_gate',
+      builder: (context, state) => const GpsGateScreen(),
     ),
     ShellRoute(
       builder: (context, state, child) {

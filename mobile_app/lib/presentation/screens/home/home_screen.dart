@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../core/theme/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -9,44 +10,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool isGpsActive = false;
-
-  void _checkGpsAndOpenReport() {
-    if (!isGpsActive) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          backgroundColor: AppColors.surfaceSecondaryLight,
-          title: const Row(
-            children: [
-              Icon(Icons.location_off, color: AppColors.stateAmber),
-              SizedBox(width: 8),
-              Text("Please Enable GPS"),
-            ],
-          ),
-          content: const Text(
-            "GPS location is mandatory before taking a complaint photo to ensure accurate ward mapping. Please enable device location.",
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text("Cancel"),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: AppColors.brandPrimary),
-              onPressed: () {
-                setState(() => isGpsActive = true);
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("GPS Location Services Activated! Opening Camera...")),
-                );
-              },
-              child: const Text("Open Location Settings"),
-            ),
-          ],
-        ),
-      );
-    }
+  void _openReportFlow() {
+    context.push('/gps_gate');
   }
 
   @override
@@ -93,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 24),
             Center(
               child: GestureDetector(
-                onTap: _checkGpsAndOpenReport,
+                onTap: _openReportFlow,
                 child: Container(
                   height: 160,
                   width: double.infinity,
