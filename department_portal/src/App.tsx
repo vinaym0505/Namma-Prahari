@@ -165,8 +165,11 @@ export function DeptAppShell() {
           <select
             className="input"
             style={{ width: 'auto', fontSize: '0.82rem', borderColor: 'rgba(255,149,0,0.3)' }}
-            value={selectedDeptId}
-            onChange={e => setSelectedDeptId(e.target.value)}
+            value={user?.departmentCode}
+            onChange={e => {
+              const code = INITIAL_DEPARTMENTS.find(d => d.id === e.target.value)?.code || 'BBMP_ROAD';
+              // Department context switcher
+            }}
           >
             {INITIAL_DEPARTMENTS.map(d => (
               <option key={d.id} value={d.id}>{d.code} — {d.name}</option>

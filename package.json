@@ -15,5 +15,8 @@
     "build:dept": "npm run build --workspace=department_portal",
     "test": "npx tsx packages/shared_ui/src/run_all_tests.ts",
     "dev:all": "concurrently \"npm run dev:admin\" \"npm run dev:dept\""
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2"
   }
 }
