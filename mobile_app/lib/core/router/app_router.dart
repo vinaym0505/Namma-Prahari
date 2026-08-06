@@ -6,6 +6,7 @@ import '../../presentation/screens/report/camera_screen.dart';
 import '../../presentation/screens/report/photo_preview_screen.dart';
 import '../../presentation/screens/report/complaint_form_screen.dart';
 import '../../presentation/screens/tracking/complaint_list_screen.dart';
+import '../../presentation/screens/tracking/complaint_detail_screen.dart';
 import '../../presentation/screens/leaderboard/leaderboard_screen.dart';
 import '../../presentation/screens/notifications/notifications_screen.dart';
 import '../../presentation/screens/profile/profile_screen.dart';
@@ -87,6 +88,13 @@ final appRouter = GoRouter(
       builder: (context, state) {
         final path = state.extra as String? ?? '';
         return ComplaintFormScreen(imagePath: path);
+      },
+    ),
+    GoRoute(
+      path: '/complaint_detail/:id',
+      builder: (context, state) {
+        final id = state.pathParameters['id'] ?? '';
+        return ComplaintDetailScreen(complaintId: id);
       },
     ),
     ShellRoute(

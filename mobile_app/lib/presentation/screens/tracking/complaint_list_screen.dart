@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../widgets/status_chip.dart';
 
 class ComplaintListScreen extends StatelessWidget {
   const ComplaintListScreen({super.key});
@@ -10,42 +12,49 @@ class ComplaintListScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("COMPLAINT HISTORY"),
+        title: const Text("MY COMPLAINTS"),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  color: AppColors.surfaceTertiaryLight,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: AppColors.borderSubtleLight),
-                ),
-                child: const Icon(Icons.inbox_outlined, size: 40, color: AppColors.textMutedLight),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Card(
+            child: ListTile(
+              onTap: () {
+                context.push('/complaint_detail/NP-2026-000101');
+              },
+              title: const Text("Severe Pothole on 80 Feet Road", style: TextStyle(fontWeight: FontWeight.bold)),
+              subtitle: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 4),
+                  Text("Ward 15 Koramangala · BBMP Road Dept", style: TextStyle(fontSize: 12)),
+                  SizedBox(height: 4),
+                  Text("Reported Aug 5, 2026 · 10:30 AM", style: TextStyle(fontSize: 11, color: AppColors.textMutedLight)),
+                ],
               ),
-              const SizedBox(height: 16),
-              Text(
-                "No Complaints Reported Yet",
-                style: theme.textTheme.headlineMedium?.copyWith(
-                  color: AppColors.textPrimaryLight,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                "Your submitted civic issue reports and resolution history will appear here.",
-                textAlign: TextAlign.center,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: AppColors.textSecondaryLight,
-                ),
-              ),
-            ],
+              trailing: const StatusChipWidget(status: 'in_progress'),
+            ),
           ),
-        ),
+          const SizedBox(height: 12),
+          Card(
+            child: ListTile(
+              onTap: () {
+                context.push('/complaint_detail/NP-2026-000102');
+              },
+              title: const Text("Streetlight Fault on 10th Main", style: TextStyle(fontWeight: FontWeight.bold)),
+              subtitle: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 4),
+                  Text("Ward 42 Shanti Nagar · BESCOM Electrical", style: TextStyle(fontSize: 12)),
+                  SizedBox(height: 4),
+                  Text("Reported Aug 4, 2026 · 08:15 PM", style: TextStyle(fontSize: 11, color: AppColors.textMutedLight)),
+                ],
+              ),
+              trailing: const StatusChipWidget(status: 'resolved'),
+            ),
+          ),
+        ],
       ),
     );
   }
