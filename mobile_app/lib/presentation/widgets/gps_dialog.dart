@@ -55,7 +55,7 @@ class GpsDisabledDialog extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           ),
           onPressed: onOpenSettings,
-          icon: const Icon(Icons.settings_location_day),
+          icon: const Icon(Icons.location_on),
           label: const Text("Open Device Location Settings"),
         ),
       ],

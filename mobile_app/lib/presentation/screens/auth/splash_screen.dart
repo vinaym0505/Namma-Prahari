@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../core/theme/app_colors.dart';
+import 'package:namma_prahari/core/theme/app_colors.dart';
 
 /// Themed Splash Screen for Namma Prahari Citizen Mobile App.
 /// Uses Phase 1 design tokens (Outfit/Inter typography, Institutional Blue #3B82F6).
@@ -106,7 +106,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                 ),
                 const SizedBox(height: 48),
                 // Loading indicator
-                const SizedBox(
+                SizedBox(
                   width: 28,
                   height: 28,
                   child: CircularProgressIndicator(
